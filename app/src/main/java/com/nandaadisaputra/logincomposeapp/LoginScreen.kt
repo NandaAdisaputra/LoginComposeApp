@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(onNavigateToRegister: () -> Unit) {
     // STATE UNTUK MENYIMPAN INPUT EMAIL DAN PASSWORD
     var email by remember { mutableStateOf("") } // Menyimpan nilai input dari email
     var password by remember { mutableStateOf("") } // Menyimpan nilai input dari password
@@ -79,6 +79,14 @@ fun LoginScreen() {
                 .height(48.dp) // Tinggi tombol
         ) {
             Text("Masuk") // Teks pada tombol
+        }
+        Spacer(modifier = Modifier.height(12.dp))
+
+        // Tombol teks untuk navigasi ke halaman Register
+        TextButton(onClick = {
+            onNavigateToRegister()
+        }) {
+            Text("Daftar akun baru")
         }
 
         Spacer(modifier = Modifier.height(12.dp)) // Spasi sebelum tombol lupa password
